@@ -4,18 +4,22 @@
  */
 package model.entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import java.io.Serializable;
 import jakarta.persistence.OneToMany;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 /**
  *
  * @author danib
  */
+@Entity
+@XmlRootElement
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
      @Id

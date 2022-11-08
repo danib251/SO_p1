@@ -19,11 +19,13 @@ import java.util.Date;
  *
  * @author danib
  */
+@Entity
+@XmlRootElement
 public class Crypto implements Serializable {
     private static final long serialVersionUID = 1L;
      @Id
-    @SequenceGenerator(name="Topic_Gen", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Topic_Gen")
+    @SequenceGenerator(name="Crypto_Gen", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Crypto_Gen")
     private int id;
     private String name;
 
@@ -67,6 +69,22 @@ public class Crypto implements Serializable {
     }
       public void setName(String name) {
         this.name = name;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setPurcharse(Collection<Purcharses> purcharse) {
+        this.purcharse = purcharse;
     }
 
     public int getId() {
