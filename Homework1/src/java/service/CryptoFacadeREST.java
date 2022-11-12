@@ -18,7 +18,7 @@ import authn.Secured;
 import jakarta.ws.rs.core.Response;
 
 @Stateless
-@Path("Crypto")
+@Path("crypto")
 public class CryptoFacadeREST extends AbstractFacade<Crypto> {
 
     @PersistenceContext(unitName = "Homework1PU")

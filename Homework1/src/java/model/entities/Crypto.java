@@ -13,7 +13,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 
 /**
  *
@@ -26,11 +25,9 @@ public class Crypto implements Serializable {
      @Id
     @SequenceGenerator(name="Crypto_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Crypto_Gen")
-    private int id;
-    private String name;
-
-    
+    private long id;
     private String description;
+    private String name; 
     private float value;
     private String date;
     
@@ -87,11 +84,11 @@ public class Crypto implements Serializable {
         this.purcharse = purcharse;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
