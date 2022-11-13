@@ -35,7 +35,17 @@ public class Purcharses implements Serializable {
     @OneToOne
     private Crypto crypto;
     @ManyToOne
-    private User user;
+    private Customer customer;
+    
+    public Purcharses(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTime() {
         return time;
@@ -61,82 +71,5 @@ public class Purcharses implements Serializable {
         this.value = value;
     }
 
-    public Crypto getCrypto() {
-        return crypto;
-    }
-
-    public void setCrypto(Crypto crypto) {
-        this.crypto = crypto;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    
    
-
-    public Purcharses() {
-    }
-    
-    
-    public float getDquantity() {
-        return quantity;
-    }
-      public void setDescription(float quantity) {
-        this.quantity = quantity;
-    }
-    
-     public String gettime() {
-        return time;
-    }
-      public void settime(String time) {
-        this.time = time;
-    }
- 
-    public float getvalue() {
-        return value;
-    }
-      public void setName(float value) {
-        this.value = value;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Purcharses)) {
-            return false;
-        }
-        Purcharses other = (Purcharses) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-
-    @Override
-    public String toString() {
-        return "model.entities.Topic[ id=" + id + " ]";
-    }
-    
 }

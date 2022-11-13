@@ -23,41 +23,28 @@ import java.util.List;
  */
 @Entity
 @XmlRootElement
-public class User implements Serializable {
+public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name="User_Gen", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "User_Gen")
+    @SequenceGenerator(name="Customer_Gen", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Customer_Gen")
     private Long id;
     private String password;
-    private String userNamer;
+    private String name;
     
     
-    @ManyToMany(mappedBy = "users")
-    final private Collection<Crypto> crypto;
-    @OneToMany(mappedBy = "user")
+    @ManyToMany(mappedBy = "customer")
+    final private Collection<Crypto> cryptos;
+    @OneToMany(mappedBy = "customer")
     final private Collection<Purcharses> purcharses;
    
     
     
-    public User() {
+    public Customer() {
         this.purcharses = new ArrayList<>();
-        this.crypto = new ArrayList<>();
+        this.cryptos = new ArrayList<>();
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Collection<Crypto> getCrypto() {
-        return crypto;
-    }
-
-    public Collection<Purcharses> getPurcharses() {
-        return purcharses;
-    }
-    
-    
     public Long getId() {
         return id;
     }
@@ -74,13 +61,17 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getUserNamer() {
-        return userNamer;
+    public String getName() {
+        return name;
     }
 
-    public void setUserNamer(String userNamer) {
-        this.userNamer = userNamer;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    
+
+    
     
     
     

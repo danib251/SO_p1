@@ -18,13 +18,13 @@ import authn.Secured;
 import jakarta.ws.rs.core.Response;
 
 @Stateless
-@Path("User")
-public class UserFacadeREST extends AbstractFacade<Customer> {
+@Path("customer")
+public class CustomerFacadeREST extends AbstractFacade<Customer> {
 
     @PersistenceContext(unitName = "Homework1PU")
     private EntityManager em;
 
-    public UserFacadeREST() {
+    public CustomerFacadeREST() {
         super(Customer.class);
     }
 

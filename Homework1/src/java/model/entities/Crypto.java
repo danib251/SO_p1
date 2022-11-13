@@ -34,71 +34,13 @@ public class Crypto implements Serializable {
     private String date;
 
     @ManyToMany
-    private Collection<User> user;
+    private Collection<Customer> customer;
     @OneToOne(mappedBy = "crypto")
     private Purcharses purcharses;
 
     
 
     public Crypto(){}
-    public Collection<User> getUser() {
-        return user;
-    }
-
-    public void setUser(Collection<User> user) {
-        this.user = user;
-    }
-
-    public Purcharses getPurcharses() {
-        return purcharses;
-    }
-
-    public void setPurcharses(Purcharses purcharses) {
-        this.purcharses = purcharses;
-    }
-    
-  
-  
-    public String getDescription() {
-        return description;
-    }
-      public void setDescription(String description) {
-        this.description = description;
-    }
-    public float getValue() {
-        return value;
-    }
-      public void setValue(float value) {
-        this.value = value;
-    }
-    
-     public String getdate() {
-        return date;
-    }
-      public void setdate(String date) {
-        this.date = date;
-    }
- 
-    public String getName() {
-        return name;
-    }
-      public void setName(String name) {
-        this.name = name;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
- 
 
     public long getId() {
         return id;
@@ -108,10 +50,37 @@ public class Crypto implements Serializable {
         this.id = id;
     }
 
-
-    @Override
-    public String toString() {
-        return "model.entities.Topic[ id=" + id + " ]";
+    public String getDescription() {
+        return description;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public float getValue() {
+        return value;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+   
     
 }
