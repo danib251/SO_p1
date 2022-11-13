@@ -8,10 +8,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import java.io.Serializable;
 import jakarta.persistence.OneToMany;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -22,32 +25,39 @@ import java.util.List;
 @XmlRootElement
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
-     @Id
-    @SequenceGenerator(name="Topic_Gen", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Topic_Gen")
+    @Id
+    @SequenceGenerator(name="User_Gen", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "User_Gen")
     private Long id;
     private String password;
     private String userNamer;
+    
+    
+    @ManyToMany(mappedBy = "users")
+    final private Collection<Crypto> crypto;
+    @OneToMany(mappedBy = "user")
+    final private Collection<Purcharses> purcharses;
    
     
-    @OneToMany(mappedBy="user")
-    private List<Purcharses> transactions;
     
-    
-    public String getUserNamer() {
-        return userNamer;
-    }
-      public void settime(String userNamer) {
-        this.userNamer = userNamer;
-    }
- 
-    public String getPassword() {
-        return password;
-    }
-      public void setName(String password) {
-        this.password = password;
+    public User() {
+        this.purcharses = new ArrayList<>();
+        this.crypto = new ArrayList<>();
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Collection<Crypto> getCrypto() {
+        return crypto;
+    }
+
+    public Collection<Purcharses> getPurcharses() {
+        return purcharses;
+    }
+    
+    
     public Long getId() {
         return id;
     }
@@ -55,31 +65,23 @@ public class User implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserNamer() {
+        return userNamer;
+    }
+
+    public void setUserNamer(String userNamer) {
+        this.userNamer = userNamer;
+    }
     
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
-            return false;
-        }
-        User other = (User) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-
-    @Override
-    public String toString() {
-        return "model.entities.Topic[ id=" + id + " ]";
-    }
+    
     
 }

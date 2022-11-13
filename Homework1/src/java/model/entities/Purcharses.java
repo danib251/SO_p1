@@ -11,7 +11,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import java.io.Serializable;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import java.util.Collection;
 
 /**
  *
@@ -22,25 +25,65 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class Purcharses implements Serializable {
     private static final long serialVersionUID = 1L;
      @Id
-    @SequenceGenerator(name="Topic_Gen", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Topic_Gen")
+    @SequenceGenerator(name="Purcharses_Gen", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Purcharses_Gen")
     private Long id;
     private String time;
     private float quantity;
     private float value;
     
-    @ManyToOne 
+    @OneToOne
     private Crypto crypto;
-    
     @ManyToOne
-    private User user; 
-    
-    public User getUser() {
-        return user;
+    private User user;
+
+    public String getTime() {
+        return time;
     }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public float getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(float quantity) {
+        this.quantity = quantity;
+    }
+
+    public float getValue() {
+        return value;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+
     public Crypto getCrypto() {
         return crypto;
     }
+
+    public void setCrypto(Crypto crypto) {
+        this.crypto = crypto;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    
+   
+
+    public Purcharses() {
+    }
+    
+    
     public float getDquantity() {
         return quantity;
     }

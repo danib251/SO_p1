@@ -8,8 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Collection;
@@ -30,16 +32,32 @@ public class Crypto implements Serializable {
     private String name; 
     private float value;
     private String date;
-    
-    @OneToMany
-    //@JoinColum(name="Transicion_id");
-    private Collection<Purcharses> purcharse;
 
-    public Collection<Purcharses> getPurcharse() {
-        return purcharse;
+    @ManyToMany
+    private Collection<User> user;
+    @OneToOne(mappedBy = "crypto")
+    private Purcharses purcharses;
+
+    
+
+    public Crypto(){}
+    public Collection<User> getUser() {
+        return user;
+    }
+
+    public void setUser(Collection<User> user) {
+        this.user = user;
+    }
+
+    public Purcharses getPurcharses() {
+        return purcharses;
+    }
+
+    public void setPurcharses(Purcharses purcharses) {
+        this.purcharses = purcharses;
     }
     
-    
+  
   
     public String getDescription() {
         return description;
@@ -80,9 +98,7 @@ public class Crypto implements Serializable {
         this.date = date;
     }
 
-    public void setPurcharse(Collection<Purcharses> purcharse) {
-        this.purcharse = purcharse;
-    }
+ 
 
     public long getId() {
         return id;
