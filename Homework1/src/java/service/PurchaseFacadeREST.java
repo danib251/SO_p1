@@ -15,7 +15,9 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import model.entities.Purchase;
 import authn.Secured;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
+import model.entities.Crypto;
 
 @Stateless
 @Path("order")
@@ -33,6 +35,22 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(Purchase entity) {
         super.create(entity);
+    }
+    
+    @POST
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.TEXT_PLAIN})
+    public Response makeOrder(@QueryParam("cryptocurrency") String cryptocurrency,String quantity) {
+        Purchase p= new Purchase();
+        Crypto c=(Crypto) em.createQuery("SELECT c FROM Crypto c WHERE c.id = " + cryptocurrency ).getSingleResult();
+        p.setCrypto(c);
+        p.setQuantity(Float.parseFloat(quantity));
+        float v= (float) em.createQuery("Select c.value from Crypto c where c.id = " + cryptocurrency ).getSingleResult();
+        p.setValue((v*Float.parseFloat(quantity)));
+        super.create(p);
+        
+        return Response.ok().entity(p).build(); 
+        
     }
 
     @PUT

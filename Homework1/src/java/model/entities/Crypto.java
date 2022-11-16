@@ -24,7 +24,7 @@ import java.util.Collection;
 @XmlRootElement
 public class Crypto implements Serializable {
     private static final long serialVersionUID = 1L;
-     @Id
+    @Id
     @SequenceGenerator(name="Crypto_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Crypto_Gen")
     private long id;

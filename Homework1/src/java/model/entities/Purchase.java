@@ -24,7 +24,7 @@ import java.util.Collection;
 @XmlRootElement
 public class Purchase implements Serializable {
     private static final long serialVersionUID = 1L;
-     @Id
+    @Id
     @SequenceGenerator(name="Purchase_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Purchase_Gen")
     private Long id;
@@ -40,6 +40,10 @@ public class Purchase implements Serializable {
 
     public Long getId() {
         return id;
+    }
+
+    public void setCrypto(Crypto crypto) {
+        this.crypto = crypto;
     }
 
     public void setId(Long id) {
