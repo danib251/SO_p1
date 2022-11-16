@@ -37,9 +37,12 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
 
     @PUT
     @Path("{id}")
+    @Secured
+    @Produces({MediaType.TEXT_PLAIN})
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Customer entity) {
+    public Response edit(@PathParam("id") Long id, Customer entity) {
         super.edit(entity);
+        return Response.ok().entity("User has been updated").build();
     }
 
     @DELETE
@@ -58,7 +61,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
 
     @GET
     @Override
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
     public List<Customer> findAll() {
         return super.findAll();
     }

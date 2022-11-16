@@ -29,7 +29,9 @@ public class Customer implements Serializable {
     @SequenceGenerator(name="Customer_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Customer_Gen")
     private Long id;
+    
     private String password;
+    
     private String name;
     
     
@@ -41,6 +43,12 @@ public class Customer implements Serializable {
     
     
     public Customer() {
+        this.purchases = new ArrayList<>();
+        this.cryptos = new ArrayList<>();
+    }
+    
+    public Customer(String name){
+        this.name=name;
         this.purchases = new ArrayList<>();
         this.cryptos = new ArrayList<>();
     }
