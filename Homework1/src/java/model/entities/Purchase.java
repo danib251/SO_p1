@@ -22,11 +22,11 @@ import java.util.Collection;
  */
 @Entity
 @XmlRootElement
-public class Purcharses implements Serializable {
+public class Purchase implements Serializable {
     private static final long serialVersionUID = 1L;
      @Id
-    @SequenceGenerator(name="Purcharses_Gen", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Purcharses_Gen")
+    @SequenceGenerator(name="Purchase_Gen", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Purchase_Gen")
     private Long id;
     private String time;
     private float quantity;
@@ -34,10 +34,9 @@ public class Purcharses implements Serializable {
     
     @OneToOne
     private Crypto crypto;
-    @ManyToOne
-    private Customer customer;
     
-    public Purcharses(){}
+    
+    public Purchase(){}
 
     public Long getId() {
         return id;

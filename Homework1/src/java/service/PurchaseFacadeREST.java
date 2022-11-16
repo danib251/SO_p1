@@ -13,36 +13,32 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import model.entities.Crypto;
+import model.entities.Purchase;
 import authn.Secured;
-import jakarta.ws.rs.QueryParam;
-import jakarta.ws.rs.core.GenericEntity;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.Response.Status;
-import java.util.LinkedList;
 
 @Stateless
-@Path("cryptocurrency")
-public class CryptoFacadeREST extends AbstractFacade<Crypto> {
+@Path("order")
+public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
 
     @PersistenceContext(unitName = "Homework1PU")
     private EntityManager em;
 
-    public CryptoFacadeREST() {
-        super(Crypto.class);
+    public PurchaseFacadeREST() {
+        super(Purchase.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Crypto entity) {
+    public void create(Purchase entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Crypto entity) {
+    public void edit(@PathParam("id") Long id, Purchase entity) {
         super.edit(entity);
     }
 
@@ -55,35 +51,22 @@ public class CryptoFacadeREST extends AbstractFacade<Crypto> {
     @GET
     @Secured
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response find(@PathParam("id") Long id) {
         return Response.ok().entity(super.find(id)).build();
     }
-    
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response getCrypto(@QueryParam("order") String order) {
-        if(order==null){
-              order="desc";
-        }
-        if(order.equals("desc")||order.equals("asc")){
-             List<Crypto> l=em.createQuery("Select c from Crypto as c order by c.value "+order).getResultList();
-             return Response.ok().entity(l).build(); 
-        }else
-            return Response.status(Response.Status.BAD_REQUEST).entity("incorrect parameter").build();
-    }
 
-    /*@GET
+    @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Crypto> findAll() {
+    public List<Purchase> findAll() {
         return super.findAll();
-    }*/
+    }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Crypto> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Purchase> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

@@ -35,13 +35,13 @@ public class Customer implements Serializable {
     
     @ManyToMany(mappedBy = "customer")
     final private Collection<Crypto> cryptos;
-    @OneToMany(mappedBy = "customer")
-    final private Collection<Purcharses> purcharses;
+    @OneToMany
+    final private Collection<Purchase> purchases;
    
     
     
     public Customer() {
-        this.purcharses = new ArrayList<>();
+        this.purchases = new ArrayList<>();
         this.cryptos = new ArrayList<>();
     }
 

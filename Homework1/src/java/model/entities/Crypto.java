@@ -36,7 +36,7 @@ public class Crypto implements Serializable {
     @ManyToMany
     private Collection<Customer> customer;
     @OneToOne(mappedBy = "crypto")
-    private Purcharses purcharses;
+    private Purchase purcharses;
 
     
 
