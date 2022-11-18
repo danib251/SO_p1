@@ -16,10 +16,7 @@ import jakarta.ws.rs.core.MediaType;
 import model.entities.Crypto;
 import authn.Secured;
 import jakarta.ws.rs.QueryParam;
-import jakarta.ws.rs.core.GenericEntity;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.Response.Status;
-import java.util.LinkedList;
 
 @Stateless
 @Path("cryptocurrency")

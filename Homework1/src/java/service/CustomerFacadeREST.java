@@ -15,7 +15,10 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import model.entities.Customer;
 import authn.Secured;
+import org.json.*;
 import jakarta.ws.rs.core.Response;
+import java.util.ArrayList;
+import static java.util.Collections.list;
 
 @Stateless
 @Path("customer")
@@ -54,16 +57,29 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @GET
     @Secured
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response find(@PathParam("id") Long id) {
-        return Response.ok().entity(super.find(id)).build();
-    }
-
-    @GET
-    @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Customer> findAll() {
-        return super.findAll();
+    public Response find(@PathParam("id") Long id) {
+        Customer c=super.find(id);
+        JSONObject js = new JSONObject(c);
+        js.remove("password");
+        return Response.ok(js.toString()).build();
+    }
+    
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response findCustomers() throws JSONException {
+        List <Customer> c=super.findAll();
+        JSONArray js = new JSONArray(c);
+        List l = new ArrayList();
+         for (int i = 0, size = js.length(); i < size; i++)
+        {
+             JSONObject j = new JSONObject(js.get(i));
+             j.remove("password");
+             l.add(j);
+        }
+        
+        return Response.ok(l.toString()).build();
+        
     }
 
     @GET

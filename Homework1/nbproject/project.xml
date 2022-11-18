@@ -8,7 +8,25 @@
         <data xmlns="http://www.netbeans.org/ns/web-project/3">
             <name>Homework1</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
-            <web-module-libraries/>
+            <web-module-libraries>
+                <library dirs="200">
+                    <file>${file.reference.Downloads-jar_files}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.Downloads-jackson-annotations-2.1.2.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.jackson-annotations-2.9.5.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.com.springsource.org.codehaus.jackson-1.4.2.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.org.json.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+            </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
                 <root id="src.dir"/>

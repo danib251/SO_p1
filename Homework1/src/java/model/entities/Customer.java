@@ -4,6 +4,7 @@
  */
 package model.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +16,9 @@ import jakarta.persistence.OneToMany;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 /**
  *
@@ -29,9 +32,8 @@ public class Customer implements Serializable {
     @SequenceGenerator(name="Customer_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Customer_Gen")
     private Long id;
-    
-    private String password;
-    
+       
+    private String password;   
     private String name;
     
     
@@ -47,11 +49,6 @@ public class Customer implements Serializable {
         this.cryptos = new ArrayList<>();
     }
     
-    public Customer(String name){
-        this.name=name;
-        this.purchases = new ArrayList<>();
-        this.cryptos = new ArrayList<>();
-    }
 
     public Long getId() {
         return id;
@@ -60,11 +57,12 @@ public class Customer implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
+    
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
-
+        
     public void setPassword(String password) {
         this.password = password;
     }
