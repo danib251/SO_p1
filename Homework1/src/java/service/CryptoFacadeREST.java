@@ -17,6 +17,8 @@ import model.entities.Crypto;
 import authn.Secured;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
+import static java.lang.constant.ConstantDescs.NULL;
+import java.util.Objects;
 
 @Stateless
 @Path("cryptocurrency")
@@ -54,11 +56,22 @@ public class CryptoFacadeREST extends AbstractFacade<Crypto> {
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response find(@PathParam("id") Long id) {
-        return Response.ok().entity(super.find(id)).build();
+        //no acaba de anar
+        Response v=Response.ok().entity(super.find(id)).build();
+        if(v.getStatus()== Response.Status.NOT_FOUND.getStatusCode())
+            return Response.status(Response.Status.NOT_FOUND).entity("incorrect parameter").build();
+        if (Objects.nonNull(super.find(id)))
+            return Response.ok().entity(super.find(id)).build();
+        else{
+            
+            
+            return Response.status(Response.Status.BAD_REQUEST).entity("crypto doesen't exist").build();
+            
+        }
     }
     
     @GET
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public Response getCrypto(@QueryParam("order") String order) {
         if(order==null){
               order="desc";
@@ -69,13 +82,6 @@ public class CryptoFacadeREST extends AbstractFacade<Crypto> {
         }else
             return Response.status(Response.Status.BAD_REQUEST).entity("incorrect parameter").build();
     }
-
-    /*@GET
-    @Override
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Crypto> findAll() {
-        return super.findAll();
-    }*/
 
     @GET
     @Path("{from}/{to}")

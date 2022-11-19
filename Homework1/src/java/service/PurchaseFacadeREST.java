@@ -38,7 +38,7 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
     }
     
     @POST
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     @Consumes({MediaType.TEXT_PLAIN})
     public Response makeOrder(@QueryParam("cryptocurrency") String cryptocurrency,String quantity) {
         Purchase p= new Purchase();

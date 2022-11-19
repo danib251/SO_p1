@@ -17,11 +17,8 @@ import model.entities.Customer;
 import authn.Secured;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import org.json.*;
 import jakarta.ws.rs.core.Response;
-import java.lang.ProcessBuilder.Redirect.Type;
-import java.util.ArrayList;
+
 
 
 @Stateless
@@ -58,16 +55,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.remove(super.find(id));
     }
 
-    /*@GET
-    @Secured
-    @Path("{id}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response find(@PathParam("id") Long id) {
-        Customer c=super.find(id);
-        JSONObject js = new JSONObject(c);
-        js.remove("password");
-        return Response.ok(js.toString()).build();
-    }*/
+   
     
     @GET
     @Secured
@@ -78,12 +66,16 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         Customer c=super.find(id);
         String s = g.toJson(c);
+        if ("null".equals(s)) {
+            s="Customer doesen't exist";
+        } else {
+        }
         return Response.ok(s).build();
     }
     
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Response findCustomers() throws JSONException {
+    public Response findCustomers()  {
         Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         List <Customer> c=super.findAll();
         String s = g.toJson(c);
