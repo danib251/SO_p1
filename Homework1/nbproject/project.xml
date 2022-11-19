@@ -10,20 +10,7 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
                 <library dirs="200">
-                    <file>${file.reference.Downloads-jar_files}</file>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.Downloads-jackson-annotations-2.1.2.jar}</file>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.jackson-annotations-2.9.5.jar}</file>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.com.springsource.org.codehaus.jackson-1.4.2.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.org.json.jar}</file>
+                    <file>${file.reference.gson-2.2.2.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

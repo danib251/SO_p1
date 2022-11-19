@@ -15,10 +15,14 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import model.entities.Customer;
 import authn.Secured;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import org.json.*;
 import jakarta.ws.rs.core.Response;
+import java.lang.ProcessBuilder.Redirect.Type;
 import java.util.ArrayList;
-import static java.util.Collections.list;
+
 
 @Stateless
 @Path("customer")
@@ -54,7 +58,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         super.remove(super.find(id));
     }
 
-    @GET
+    /*@GET
     @Secured
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -63,23 +67,27 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         JSONObject js = new JSONObject(c);
         js.remove("password");
         return Response.ok(js.toString()).build();
+    }*/
+    
+    @GET
+    @Secured
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response find(@PathParam("id") Long id) {
+        //Gson g = new Gson();
+        Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        Customer c=super.find(id);
+        String s = g.toJson(c);
+        return Response.ok(s).build();
     }
     
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response findCustomers() throws JSONException {
+        Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         List <Customer> c=super.findAll();
-        JSONArray js = new JSONArray(c);
-        List l = new ArrayList();
-         for (int i = 0, size = js.length(); i < size; i++)
-        {
-             JSONObject j = new JSONObject(js.get(i));
-             j.remove("password");
-             l.add(j);
-        }
-        
-        return Response.ok(l.toString()).build();
-        
+        String s = g.toJson(c);
+        return Response.ok(s).build(); 
     }
 
     @GET

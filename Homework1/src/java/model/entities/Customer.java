@@ -4,7 +4,8 @@
  */
 package model.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+import com.google.gson.annotations.Expose;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +18,6 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 
 /**
@@ -31,10 +31,10 @@ public class Customer implements Serializable {
     @Id
     @SequenceGenerator(name="Customer_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Customer_Gen")
-    private Long id;
-       
+    @Expose private Long id;
+    
     private String password;   
-    private String name;
+    @Expose private String name;
     
     
     @ManyToMany(mappedBy = "customer")
@@ -58,7 +58,6 @@ public class Customer implements Serializable {
         this.id = id;
     }
     
-    @JsonIgnore
     public String getPassword() {
         return password;
     }

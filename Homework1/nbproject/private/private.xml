@@ -11,6 +11,8 @@
             <file>file:/C:/SO_p1/Homework1/src/java/service/CustomerFacadeREST.java</file>
             <file>file:/C:/SO_p1/Homework1/src/java/model/entities/Customer.java</file>
             <file>file:/C:/SO_p1/Homework1/src/java/model/entities/Crypto.java</file>
+            <file>file:/C:/SO_p1/Homework1/src/java/service/RESTapp.java</file>
+            <file>file:/C:/SO_p1/Homework1/src/conf/persistence.xml</file>
         </group>
     </open-files>
 </project-private>
