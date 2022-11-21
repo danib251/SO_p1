@@ -18,6 +18,7 @@ import authn.Secured;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import static java.lang.constant.ConstantDescs.NULL;
+import java.util.ArrayList;
 import java.util.Objects;
 
 @Stateless
@@ -71,14 +72,15 @@ public class CryptoFacadeREST extends AbstractFacade<Crypto> {
     }
     
     @GET
-    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
     public Response getCrypto(@QueryParam("order") String order) {
+        
         if(order==null){
               order="desc";
         }
         if(order.equals("desc")||order.equals("asc")){
-             List<Crypto> l=em.createQuery("Select c from Crypto as c order by c.value "+order).getResultList();
-             return Response.ok().entity(l).build(); 
+            List<Crypto> l=em.createQuery("Select c from Crypto as c order by c.value "+order).getResultList();
+             return Response.ok(l).build(); 
         }else
             return Response.status(Response.Status.BAD_REQUEST).entity("incorrect parameter").build();
     }

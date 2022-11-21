@@ -14,6 +14,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  *
@@ -30,14 +31,20 @@ public class Crypto implements Serializable {
     private String description;
     private String name; 
     private float value;
-    private String date;
+    private Date date;
 
     @ManyToMany
     private Collection<Customer> customer;
-    @OneToOne(mappedBy = "crypto")
+    @OneToOne
     private Purchase purcharses;
 
-    
+    public Purchase getPurcharses() {
+        return purcharses;
+    }
+
+    public void setPurcharses(Purchase purcharses) {
+        this.purcharses = purcharses;
+    }
 
     public Crypto(){}
 
@@ -73,13 +80,15 @@ public class Crypto implements Serializable {
         this.value = value;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
+
    
+    
     
 }

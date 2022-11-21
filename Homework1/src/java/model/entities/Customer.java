@@ -35,7 +35,8 @@ public class Customer implements Serializable {
     
     private String password;   
     @Expose private String name;
-    
+    @Expose private String mail;
+    @Expose private String tel;
     
     @ManyToMany(mappedBy = "customer")
     final private Collection<Crypto> cryptos;
@@ -72,6 +73,22 @@ public class Customer implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     

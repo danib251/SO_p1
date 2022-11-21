@@ -18,6 +18,7 @@ import authn.Secured;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import jakarta.ws.rs.core.Response;
+import java.util.Objects;
 
 
 
@@ -45,6 +46,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Produces({MediaType.TEXT_PLAIN})
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response edit(@PathParam("id") Long id, Customer entity) {
+        
         super.edit(entity);
         return Response.ok().entity("User has been updated").build();
     }
@@ -66,10 +68,9 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         Customer c=super.find(id);
         String s = g.toJson(c);
-        if ("null".equals(s)) {
-            s="Customer doesen't exist";
-        } else {
-        }
+        if (Objects.isNull(s)) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Customer doesen't exist").build();
+        } 
         return Response.ok(s).build();
     }
     

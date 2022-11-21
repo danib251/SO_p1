@@ -15,8 +15,11 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import model.entities.Purchase;
 import authn.Secured;
+import jakarta.persistence.NoResultException;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
+import java.util.Date;
+import java.util.Objects;
 import model.entities.Crypto;
 
 @Stateless
@@ -42,14 +45,23 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
     @Consumes({MediaType.TEXT_PLAIN})
     public Response makeOrder(@QueryParam("cryptocurrency") String cryptocurrency,String quantity) {
         Purchase p= new Purchase();
-        Crypto c=(Crypto) em.createQuery("SELECT c FROM Crypto c WHERE c.id = " + cryptocurrency ).getSingleResult();
-        p.setCrypto(c);
-        p.setQuantity(Float.parseFloat(quantity));
-        float v= (float) em.createQuery("Select c.value from Crypto c where c.id = " + cryptocurrency ).getSingleResult();
-        p.setValue((v*Float.parseFloat(quantity)));
-        super.create(p);
+        try{
+            Crypto c=(Crypto) em.createQuery("SELECT c FROM Crypto c WHERE c.id = " + cryptocurrency ).getSingleResult();
+            p.setCrypto(c.getName());
+            p.setQuantity(Float.parseFloat(quantity));
+            float v= (float) em.createQuery("Select c.value from Crypto c where c.id = " + cryptocurrency ).getSingleResult();
+            p.setValue((v*Float.parseFloat(quantity)));
+            p.setTime(new Date());
+            super.create(p);
+            c.setPurcharses(p);
+            return Response.ok().entity(p).build(); 
+        }catch(NoResultException e){
+          return Response.status(Response.Status.BAD_REQUEST).entity("crypto doesen't exist").build();
+        }
+         
+            
         
-        return Response.ok().entity(p).build(); 
+        
         
     }
 

@@ -15,6 +15,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  *
@@ -28,12 +29,11 @@ public class Purchase implements Serializable {
     @SequenceGenerator(name="Purchase_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Purchase_Gen")
     private Long id;
-    private String time;
+    private Date time;
     private float quantity;
     private float value;
     
-    @OneToOne
-    private Crypto crypto;
+    private String crypto;
     
     
     public Purchase(){}
@@ -42,21 +42,29 @@ public class Purchase implements Serializable {
         return id;
     }
 
-    public void setCrypto(Crypto crypto) {
+    public String getCrypto() {
+        return crypto;
+    }
+
+    public void setCrypto(String crypto) {
         this.crypto = crypto;
     }
+
+    
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
+
+    
 
     public float getQuantity() {
         return quantity;
