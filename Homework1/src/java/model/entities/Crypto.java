@@ -33,8 +33,7 @@ public class Crypto implements Serializable {
     private float value;
     private Date date;
 
-    @ManyToMany
-    private Collection<Customer> customer;
+  
     @OneToOne
     private Purchase purcharses;
 

@@ -35,13 +35,12 @@ public class Purchase implements Serializable {
     
     private String crypto;
     
-    
     public Purchase(){}
 
     public Long getId() {
         return id;
     }
-
+    
     public String getCrypto() {
         return crypto;
     }
@@ -81,6 +80,8 @@ public class Purchase implements Serializable {
     public void setValue(float value) {
         this.value = value;
     }
+
+    
 
    
 }

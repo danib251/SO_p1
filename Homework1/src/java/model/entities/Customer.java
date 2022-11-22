@@ -6,6 +6,7 @@ package model.entities;
 
 
 import com.google.gson.annotations.Expose;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import java.io.Serializable;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,12 +36,14 @@ public class Customer implements Serializable {
     @Expose private Long id;
     
     private String password;   
-    @Expose private String name;
+    
+    @Expose
+    private String name;
+    @Column(unique=true)
     @Expose private String mail;
     @Expose private String tel;
     
-    @ManyToMany(mappedBy = "customer")
-    final private Collection<Crypto> cryptos;
+    
     @OneToMany
     final private Collection<Purchase> purchases;
    
@@ -47,12 +51,18 @@ public class Customer implements Serializable {
     
     public Customer() {
         this.purchases = new ArrayList<>();
-        this.cryptos = new ArrayList<>();
     }
     
-
     public Long getId() {
         return id;
+    }
+    
+    public void addPurchase(Purchase p){
+        this.purchases.add(p);
+    }
+
+    public Collection<Purchase> getPurchases() {
+        return purchases;
     }
 
     public void setId(Long id) {

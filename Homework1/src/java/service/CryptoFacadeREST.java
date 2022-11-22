@@ -17,8 +17,6 @@ import model.entities.Crypto;
 import authn.Secured;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
-import static java.lang.constant.ConstantDescs.NULL;
-import java.util.ArrayList;
 import java.util.Objects;
 
 @Stateless
@@ -53,11 +51,9 @@ public class CryptoFacadeREST extends AbstractFacade<Crypto> {
     }
 
     @GET
-    @Secured
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response find(@PathParam("id") Long id) {
-        //no acaba de anar
         Response v=Response.ok().entity(super.find(id)).build();
         if(v.getStatus()== Response.Status.NOT_FOUND.getStatusCode())
             return Response.status(Response.Status.NOT_FOUND).entity("incorrect parameter").build();

@@ -47,7 +47,12 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response edit(@PathParam("id") Long id, Customer entity) {
         
+        System.out.print(entity.getMail());
+        String pass= entity.getPassword();
+        entity.setPassword(pass);
+        
         super.edit(entity);
+        
         return Response.ok().entity("User has been updated").build();
     }
 
@@ -60,7 +65,6 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
    
     
     @GET
-    @Secured
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response find(@PathParam("id") Long id) {
