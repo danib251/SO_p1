@@ -54,7 +54,6 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
         StringTokenizer tokenizer = new StringTokenizer(decode, ":");
         String user = tokenizer.nextToken();
         String password = tokenizer.nextToken();
-        
               
         Purchase p= new Purchase();
         try{           

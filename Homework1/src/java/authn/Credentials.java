@@ -1,8 +1,10 @@
 package authn;
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 @Entity
 @NamedQuery(name="Credentials.findUser", 
@@ -11,13 +13,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Credentials implements Serializable { 
     @Id
     @SequenceGenerator(name="Credentials_Gen", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Credentials_Gen") 
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Credentials_Gen")
     private Long id;
     @Column(unique=true)
     @NotNull(message="Username can't be null")
+    @Expose
     private String username;
+    @Expose
     @NotNull(message="Password can't be null")
     private String password;
+    
+    
 
     public Long getId() {
         return id;

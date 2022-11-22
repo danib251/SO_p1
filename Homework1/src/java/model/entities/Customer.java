@@ -5,6 +5,7 @@
 package model.entities;
 
 
+import authn.Credentials;
 import com.google.gson.annotations.Expose;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,6 +16,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import java.io.Serializable;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
@@ -34,11 +36,6 @@ public class Customer implements Serializable {
     @SequenceGenerator(name="Customer_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Customer_Gen")
     @Expose private Long id;
-    
-    private String password;   
-    
-    @Expose
-    private String name;
     @Column(unique=true)
     @Expose private String mail;
     @Expose private String tel;
@@ -46,6 +43,9 @@ public class Customer implements Serializable {
     
     @OneToMany
     final private Collection<Purchase> purchases;
+    
+    @OneToOne
+    @Expose private Credentials credentials;
    
     
     
@@ -55,6 +55,14 @@ public class Customer implements Serializable {
     
     public Long getId() {
         return id;
+    }
+
+    public Credentials getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
     }
     
     public void addPurchase(Purchase p){

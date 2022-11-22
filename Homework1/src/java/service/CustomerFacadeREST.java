@@ -83,6 +83,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     public Response findCustomers()  {
         Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         List <Customer> c=super.findAll();
+        
         String s = g.toJson(c);
         return Response.ok(s).build(); 
     }

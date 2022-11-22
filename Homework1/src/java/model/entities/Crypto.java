@@ -8,12 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.OneToOne;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 
 /**

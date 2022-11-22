@@ -43,9 +43,9 @@
                 "INSERT INTO " + schema + ".CREDENTIALS VALUES (NEXT VALUE FOR CREDENTIALS_GEN, 'hola','joan@gamil.com')",
                 "INSERT INTO " + schema + ".CREDENTIALS VALUES (NEXT VALUE FOR CREDENTIALS_GEN,'123','pere@gamil.com')",
                 "INSERT INTO " + schema + ".CREDENTIALS VALUES (NEXT VALUE FOR CREDENTIALS_GEN,'456','marc@gamil.com')",
-                "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'sob','sob','sob','612123564')",
-                "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'pere@gamil.com','Pere','123','612124564')",
-                "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'marc@gamil.com','Marc', '456','61857564')",
+                "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'sob','sob','sob','612123564',1)",
+                "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'pere@gamil.com','Pere','123','612124564',2)",
+                "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'marc@gamil.com','Marc', '456','61857564',3)",
                 "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','eth mola', 'ethereum', 1300,null)",
                 "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','bitcoin mola', 'bitcoin', 16000,null)"
              
