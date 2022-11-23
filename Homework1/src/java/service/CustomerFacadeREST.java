@@ -19,6 +19,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import jakarta.ws.rs.core.Response;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
+import static org.json.JSONObject.NULL;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 
@@ -43,16 +50,21 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @PUT
     @Path("{id}")
     @Secured
-    @Produces({MediaType.TEXT_PLAIN})
+    @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response edit(@PathParam("id") Long id, Customer entity) {
+    @SuppressWarnings("null")
+    public Response edit(@PathParam("id") Long id, Customer entity)  {
+        Customer cust=(Customer) em.createQuery("SELECT c FROM Customer c WHERE c.id= :id").setParameter("id", id).getSingleResult();
         
-        System.out.print(entity.getMail());
-        String pass= entity.getPassword();
-        entity.setPassword(pass);
-        
-        super.edit(entity);
-        
+        if (entity.getName()!=NULL)
+            cust.setName(entity.getName());
+        if (entity.getPhone()!=NULL)
+            cust.setPhone(entity.getPhone());
+        if(entity.getCredentials().getPassword()!=NULL)
+            cust.getCredentials().setPassword(entity.getCredentials().getPassword());
+        if(entity.getCredentials().getUsername()!=NULL)
+            cust.getCredentials().setUsername(entity.getCredentials().getUsername());
+            
         return Response.ok().entity("User has been updated").build();
     }
 

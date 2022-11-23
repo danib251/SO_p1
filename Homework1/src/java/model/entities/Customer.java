@@ -36,13 +36,12 @@ public class Customer implements Serializable {
     @SequenceGenerator(name="Customer_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Customer_Gen")
     @Expose private Long id;
-    @Column(unique=true)
-    @Expose private String mail;
-    @Expose private String tel;
+    @Expose private String name;
+    @Expose private String phone;
     
     
     @OneToMany
-    final private Collection<Purchase> purchases;
+    @Expose final private Collection<Purchase> purchases;
     
     @OneToOne
     @Expose private Credentials credentials;
@@ -76,14 +75,6 @@ public class Customer implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    public String getPassword() {
-        return password;
-    }
-        
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getName() {
         return name;
@@ -93,21 +84,15 @@ public class Customer implements Serializable {
         this.name = name;
     }
 
-    public String getMail() {
-        return mail;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
+    
 
     
 

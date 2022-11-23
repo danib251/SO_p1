@@ -19,7 +19,7 @@ public class Credentials implements Serializable {
     @NotNull(message="Username can't be null")
     @Expose
     private String username;
-    @Expose
+    
     @NotNull(message="Password can't be null")
     private String password;
     
