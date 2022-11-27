@@ -92,7 +92,4 @@ public class Crypto implements Serializable {
         this.date = date;
     }
 
-   
-    
-    
 }

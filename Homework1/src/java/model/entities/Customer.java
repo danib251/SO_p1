@@ -4,7 +4,6 @@
  */
 package model.entities;
 
-
 import authn.Credentials;
 import com.google.gson.annotations.Expose;
 import jakarta.persistence.Entity;
@@ -19,8 +18,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Collection;
-
-
 
 /**
  *
@@ -38,17 +35,15 @@ public class Customer implements Serializable {
     @Expose private Long id;
     @NotNull
     @Expose private String name;
-    @NotNull
+
     @Expose private String phone;
     
-    
     @OneToMany
-    final private Collection<Purchase> purchases;
+     private Collection<Purchase> purchases;
     
     @OneToOne
     @Expose private Credentials credentials;
    
-    
     
     public Customer() {
         this.purchases = new ArrayList<>();
@@ -93,13 +88,5 @@ public class Customer implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    
-
-    
-
-    
-    
-    
     
 }

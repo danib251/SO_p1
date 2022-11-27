@@ -28,13 +28,13 @@ public class Purchase implements Serializable {
     @SequenceGenerator(name="Purchase_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Purchase_Gen")
     private Long id;
-    @NotNull
-    private Date time;
-    @NotNull
-    private float quantity;
-    @NotNull
-    private float value;
     
+    private Date time;
+    
+    private float quantity;
+    
+    private float value;
+  
     private String crypto;
     
     public Purchase(){}
@@ -51,8 +51,6 @@ public class Purchase implements Serializable {
         this.crypto = crypto;
     }
 
-    
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -64,8 +62,6 @@ public class Purchase implements Serializable {
     public void setTime(Date time) {
         this.time = time;
     }
-
-    
 
     public float getQuantity() {
         return quantity;
@@ -82,8 +78,4 @@ public class Purchase implements Serializable {
     public void setValue(float value) {
         this.value = value;
     }
-
-    
-
-   
 }

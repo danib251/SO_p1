@@ -1,5 +1,6 @@
 package service;
 
+import Support.Message;
 import java.util.List;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -17,11 +18,12 @@ import model.entities.Customer;
 import authn.Secured;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.sun.xml.messaging.saaj.util.Base64;
+import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.core.Response;
 import java.util.Objects;
+import java.util.StringTokenizer;
 import static org.json.JSONObject.NULL;
-
-
 
 
 @Stateless
@@ -47,10 +49,13 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Secured
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @SuppressWarnings("null")
-    public Response edit(@PathParam("id") Long id, Customer entity)  {
+    public Response edit(@HeaderParam("Authorization") String auth,@PathParam("id") Long id, Customer entity)  {
+        auth = auth.replace("Basic ", "");
+        String user = new StringTokenizer(Base64.base64Decode(auth), ":").nextToken();
         Customer cust=(Customer) em.createQuery("SELECT c FROM Customer c WHERE c.id= :id").setParameter("id", id).getSingleResult();
         
+        if(cust.getId()!= id)
+            return Response.status(Response.Status.UNAUTHORIZED).entity(new Message("Incorrect user")).build();
         if (entity.getName()!=NULL)
             cust.setName(entity.getName());
         if (entity.getPhone()!=NULL)
@@ -60,7 +65,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         if(entity.getCredentials().getUsername()!=NULL)
             cust.getCredentials().setUsername(entity.getCredentials().getUsername());
         
-        return Response.ok().entity("User has been updated").build();
+        return Response.ok().entity(new Message("User has been updated")).build();
         
     }
 
@@ -74,16 +79,15 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public Response find(@PathParam("id") Long id) {
-        //Gson g = new Gson();
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-        Customer cutomer=super.find(id);
-        String result = gson.toJson(cutomer);
-        if (Objects.isNull(result)) {
-            return Response.status(Response.Status.BAD_REQUEST).entity("Customer doesen't exist").build();
+        Customer customer=super.find(id);
+        Customer result = gson.fromJson(gson.toJson(customer), Customer.class);
+        if (Objects.isNull(customer)) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(new Message("Customer doesen't exist")).build();
         }
-        return Response.ok(result).build();
+        return Response.ok().entity(result).build();
     }
     
     @GET
@@ -91,7 +95,6 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     public Response findCustomers()  {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         List <Customer> customerList=super.findAll();
-        
         String resultlist = gson.toJson(customerList);
         return Response.ok(resultlist).build(); 
     }

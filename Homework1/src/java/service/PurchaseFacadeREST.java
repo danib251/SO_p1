@@ -1,5 +1,6 @@
 package service;
 
+import Support.Message;
 import java.util.List;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -22,6 +23,7 @@ import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import java.util.Date;
+import java.util.Objects;
 import java.util.StringTokenizer;
 import model.entities.Crypto;
 import model.entities.Customer;
@@ -77,10 +79,10 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
             cust.addPurchase(purchase);
             return Response.ok().entity(purchase).build(); 
         }catch(NoResultException e){
-          return Response.status(Response.Status.BAD_REQUEST).entity("crypto doesen't exist").build();
+          return Response.status(Response.Status.BAD_REQUEST).entity(new Message("crypto doesen't exist")).build();
         
         }catch(JsonParsingException e){
-          return Response.status(Response.Status.BAD_REQUEST).entity("Incorrect parameter format").build();
+          return Response.status(Response.Status.BAD_REQUEST).entity(new Message("Incorrect parameter format")).build();
         }
     }
 
@@ -102,7 +104,9 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response find(@PathParam("id") Long id) {
-        return Response.ok().entity(super.find(id)).build();
+         if (Objects.nonNull(super.find(id)))
+            return Response.ok().entity(super.find(id)).build();
+        return Response.ok().entity(new Message("Incorrect parameter")).build();
     }
 
     @GET

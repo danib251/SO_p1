@@ -1,5 +1,6 @@
 package service;
 
+import Support.Message;
 import java.util.List;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -53,13 +54,11 @@ public class CryptoFacadeREST extends AbstractFacade<Crypto> {
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public Response find(@PathParam("id") Long id) {
-        Response result=Response.ok().entity(super.find(id)).build();
-        if(result.getStatus()== Response.Status.NOT_FOUND.getStatusCode())
-            return Response.status(Response.Status.NOT_FOUND).entity("incorrect parameter").build();
+        
         if (Objects.nonNull(super.find(id)))
-            return result;
+            return Response.ok().entity(super.find(id)).build();
         else{
-            return Response.status(Response.Status.BAD_REQUEST).entity("crypto doesen't exist").build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(new Message("crypto doesen't exist")).build();
         }
     }
     
@@ -73,8 +72,9 @@ public class CryptoFacadeREST extends AbstractFacade<Crypto> {
         if(order.equals("desc")||order.equals("asc")){
             List<Crypto> resultList=em.createQuery("Select c from Crypto as c order by c.value "+order).getResultList();
              return Response.ok().entity(resultList).build(); 
-        }else
-            return Response.status(Response.Status.BAD_REQUEST).entity("incorrect parameter").build();
+        }else{
+            return Response.status(Response.Status.BAD_REQUEST).entity(new Message("incorrect parameter")).build();
+        }
     }
 
     @GET
