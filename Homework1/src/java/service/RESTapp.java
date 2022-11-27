@@ -14,9 +14,7 @@ public class RESTapp extends Application {
         final Set<Class<?>> classes = new HashSet<Class<?>>();
         classes.add(RESTRequestFilter.class);
         classes.add(CryptoFacadeREST.class);
-        classes.add(CommentFacadeREST.class);
         classes.add(CustomerFacadeREST.class);
-        classes.add(UserFacadeREST.class);
         classes.add(AbstractFacade.class);
         classes.add(PurchaseFacadeREST.class);
         return classes;

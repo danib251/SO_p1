@@ -7,12 +7,10 @@ package model.entities;
 
 import authn.Credentials;
 import com.google.gson.annotations.Expose;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import java.io.Serializable;
 import jakarta.persistence.OneToMany;
@@ -26,7 +24,9 @@ import java.util.Collection;
 
 /**
  *
- * @author danib
+ * @author Daniel Becerra
+ * @author Gabriel Gombau
+ * 
  */
 @Entity
 @XmlRootElement
@@ -36,12 +36,14 @@ public class Customer implements Serializable {
     @SequenceGenerator(name="Customer_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Customer_Gen")
     @Expose private Long id;
+    @NotNull
     @Expose private String name;
+    @NotNull
     @Expose private String phone;
     
     
     @OneToMany
-    @Expose final private Collection<Purchase> purchases;
+    final private Collection<Purchase> purchases;
     
     @OneToOne
     @Expose private Credentials credentials;

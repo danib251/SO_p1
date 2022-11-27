@@ -22,7 +22,6 @@ import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import java.util.Date;
-import java.util.Objects;
 import java.util.StringTokenizer;
 import model.entities.Crypto;
 import model.entities.Customer;
@@ -51,32 +50,32 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
     @Consumes({MediaType.APPLICATION_JSON})
     public Response makeOrder(@HeaderParam("Authorization") String auth,@QueryParam("cryptocurrency") String cryptocurrency,Purchase entity) {
         
+        float value;
+        Purchase purchase= new Purchase();
+        Customer cust;
+        Crypto crypto;
+        
         String decode = Base64.base64Decode(auth.replace("Basic ", ""));
         StringTokenizer tokenizer = new StringTokenizer(decode, ":");
         String user = tokenizer.nextToken();
         String password = tokenizer.nextToken();
-        
-              
-        Purchase p= new Purchase();
         try{          
             float quantity = entity.getQuantity();
             if (quantity <= 0){
                  return Response.status(Response.Status.BAD_REQUEST).entity("invalid input").build();
             }
-            System.out.print(quantity);
-            Customer cust=(Customer) em.createQuery("SELECT c FROM Customer c WHERE c.credentials.username = :user").setParameter("user", user).getSingleResult();
-               
-            Crypto c=(Crypto) em.createQuery("SELECT c FROM Crypto c WHERE c.id = " + cryptocurrency ).getSingleResult();
-            p.setCrypto(c.getName());
+            cust=(Customer) em.createQuery("SELECT c FROM Customer c WHERE c.credentials.username = :user").setParameter("user", user).getSingleResult();   
+            crypto=(Crypto) em.createQuery("SELECT c FROM Crypto c WHERE c.id = " +cryptocurrency).getSingleResult();
+            value= (float) em.createQuery("Select c.value from Crypto c where c.id = " + cryptocurrency ).getSingleResult();
             
-            p.setQuantity(quantity);
-            float v= (float) em.createQuery("Select c.value from Crypto c where c.id = " + cryptocurrency ).getSingleResult();
-            p.setValue((v*quantity));
-            p.setTime(new Date());
-            super.create(p);
-            c.setPurcharses(p);
-            cust.addPurchase(p);
-            return Response.ok().entity(p).build(); 
+            purchase.setCrypto(crypto.getName());
+            purchase.setQuantity(quantity);
+            purchase.setValue((value*quantity));
+            purchase.setTime(new Date());
+            super.create(purchase);
+            crypto.setPurcharses(purchase);
+            cust.addPurchase(purchase);
+            return Response.ok().entity(purchase).build(); 
         }catch(NoResultException e){
           return Response.status(Response.Status.BAD_REQUEST).entity("crypto doesen't exist").build();
         
@@ -101,7 +100,7 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
     @GET
     @Secured
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response find(@PathParam("id") Long id) {
         return Response.ok().entity(super.find(id)).build();
     }

@@ -14,7 +14,6 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import model.entities.Crypto;
-import authn.Secured;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import java.util.Objects;
@@ -52,31 +51,28 @@ public class CryptoFacadeREST extends AbstractFacade<Crypto> {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public Response find(@PathParam("id") Long id) {
-        Response v=Response.ok().entity(super.find(id)).build();
-        if(v.getStatus()== Response.Status.NOT_FOUND.getStatusCode())
+        Response result=Response.ok().entity(super.find(id)).build();
+        if(result.getStatus()== Response.Status.NOT_FOUND.getStatusCode())
             return Response.status(Response.Status.NOT_FOUND).entity("incorrect parameter").build();
         if (Objects.nonNull(super.find(id)))
-            return Response.ok().entity(super.find(id)).build();
+            return result;
         else{
-            
-            
             return Response.status(Response.Status.BAD_REQUEST).entity("crypto doesen't exist").build();
-            
         }
     }
     
     @GET
-    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public Response getCrypto(@QueryParam("order") String order) {
         
         if(order==null){
               order="desc";
         }
         if(order.equals("desc")||order.equals("asc")){
-            List<Crypto> l=em.createQuery("Select c from Crypto as c order by c.value "+order).getResultList();
-             return Response.ok(l).build(); 
+            List<Crypto> resultList=em.createQuery("Select c from Crypto as c order by c.value "+order).getResultList();
+             return Response.ok().entity(resultList).build(); 
         }else
             return Response.status(Response.Status.BAD_REQUEST).entity("incorrect parameter").build();
     }

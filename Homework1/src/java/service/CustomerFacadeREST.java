@@ -19,13 +19,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import jakarta.ws.rs.core.Response;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.json.JSONException;
-import org.json.JSONObject;
 import static org.json.JSONObject.NULL;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 
 
 
@@ -64,8 +59,9 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
             cust.getCredentials().setPassword(entity.getCredentials().getPassword());
         if(entity.getCredentials().getUsername()!=NULL)
             cust.getCredentials().setUsername(entity.getCredentials().getUsername());
-            
+        
         return Response.ok().entity("User has been updated").build();
+        
     }
 
     @DELETE
@@ -81,23 +77,23 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Produces({MediaType.APPLICATION_JSON})
     public Response find(@PathParam("id") Long id) {
         //Gson g = new Gson();
-        Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-        Customer c=super.find(id);
-        String s = g.toJson(c);
-        if (Objects.isNull(s)) {
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        Customer cutomer=super.find(id);
+        String result = gson.toJson(cutomer);
+        if (Objects.isNull(result)) {
             return Response.status(Response.Status.BAD_REQUEST).entity("Customer doesen't exist").build();
-        } 
-        return Response.ok(s).build();
+        }
+        return Response.ok(result).build();
     }
     
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response findCustomers()  {
-        Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-        List <Customer> c=super.findAll();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        List <Customer> customerList=super.findAll();
         
-        String s = g.toJson(c);
-        return Response.ok(s).build(); 
+        String resultlist = gson.toJson(customerList);
+        return Response.ok(resultlist).build(); 
     }
 
     @GET

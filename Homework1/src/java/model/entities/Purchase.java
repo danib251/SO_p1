@@ -9,17 +9,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import java.util.Collection;
 import java.util.Date;
 
 /**
  *
- * @author danib
+ * @author Daniel Becerra
+ * @author Gabriel Gombau
+ * 
  */
 @Entity
 @XmlRootElement
@@ -29,8 +28,11 @@ public class Purchase implements Serializable {
     @SequenceGenerator(name="Purchase_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Purchase_Gen")
     private Long id;
+    @NotNull
     private Date time;
+    @NotNull
     private float quantity;
+    @NotNull
     private float value;
     
     private String crypto;

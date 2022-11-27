@@ -10,13 +10,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
- * @author danib
+ * @author Daniel Becerra
+ * @author Gabriel Gombau
+ * 
  */
 @Entity
 @XmlRootElement
@@ -26,9 +29,13 @@ public class Crypto implements Serializable {
     @SequenceGenerator(name="Crypto_Gen", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Crypto_Gen")
     private long id;
+    @NotNull
     private String description;
+    @NotNull
     private String name; 
+    @NotNull
     private float value;
+    @NotNull
     private Date date;
 
   
