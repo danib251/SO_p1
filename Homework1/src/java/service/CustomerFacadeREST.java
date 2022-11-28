@@ -1,5 +1,6 @@
 package service;
 
+
 import Support.Message;
 import java.util.List;
 import jakarta.ejb.Stateless;
@@ -23,7 +24,6 @@ import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.core.Response;
 import java.util.Objects;
 import java.util.StringTokenizer;
-import static org.json.JSONObject.NULL;
 
 
 @Stateless
@@ -48,25 +48,23 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Path("{id}")
     @Secured
     @Produces({MediaType.APPLICATION_JSON})
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
     public Response edit(@HeaderParam("Authorization") String auth,@PathParam("id") Long id, Customer entity)  {
         auth = auth.replace("Basic ", "");
         String user = new StringTokenizer(Base64.base64Decode(auth), ":").nextToken();
         Customer cust=(Customer) em.createQuery("SELECT c FROM Customer c WHERE c.id= :id").setParameter("id", id).getSingleResult();
-        
-        if(cust.getId()!= id)
+        if(!cust.getCredentials().getUsername().equalsIgnoreCase(user))
             return Response.status(Response.Status.UNAUTHORIZED).entity(new Message("Incorrect user")).build();
-        if (entity.getName()!=NULL)
+        if (entity.getName()!=null)
             cust.setName(entity.getName());
-        if (entity.getPhone()!=NULL)
+        if (entity.getPhone()!=null)
             cust.setPhone(entity.getPhone());
-        if(entity.getCredentials().getPassword()!=NULL)
+        if(entity.getCredentials().getPassword()!=null)
             cust.getCredentials().setPassword(entity.getCredentials().getPassword());
-        if(entity.getCredentials().getUsername()!=NULL)
+        if(entity.getCredentials().getUsername()!=null)
             cust.getCredentials().setUsername(entity.getCredentials().getUsername());
         
-        return Response.ok().entity(new Message("User has been updated")).build();
-        
+        return Response.ok().entity(new Message("customer updated")).build();
     }
 
     @DELETE

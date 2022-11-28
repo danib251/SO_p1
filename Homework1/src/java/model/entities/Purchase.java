@@ -9,7 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.Date;

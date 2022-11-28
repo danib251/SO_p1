@@ -35,7 +35,7 @@ public class Customer implements Serializable {
     @Expose private Long id;
     @NotNull
     @Expose private String name;
-
+    @NotNull
     @Expose private String phone;
     
     @OneToMany

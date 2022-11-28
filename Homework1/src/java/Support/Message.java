@@ -12,21 +12,22 @@ import java.io.Serializable;
  * 
  */
 
+
 public class Message implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    private String body;
+    private String message;
     
     public Message (String b){
-        this.body=b;
+        this.message=b;
     }
     
-    public String getBody() {
-        return body;
+    public String getMessage() {
+        return message;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setMessage(String message) {
+        this.message = message;
     }
  
   

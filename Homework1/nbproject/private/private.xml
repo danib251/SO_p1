@@ -5,11 +5,13 @@
         <group>
             <file>file:/C:/SO_p1/Homework1/src/java/Support/Message.java</file>
             <file>file:/C:/SO_p1/Homework1/src/java/service/CryptoFacadeREST.java</file>
+            <file>file:/C:/SO_p1/Homework1/src/java/service/AbstractFacade.java</file>
             <file>file:/C:/SO_p1/Homework1/src/java/service/PurchaseFacadeREST.java</file>
             <file>file:/C:/SO_p1/Homework1/src/java/model/entities/Purchase.java</file>
             <file>file:/C:/SO_p1/Homework1/src/java/authn/Credentials.java</file>
             <file>file:/C:/SO_p1/Homework1/src/java/service/CustomerFacadeREST.java</file>
             <file>file:/C:/SO_p1/Homework1/src/java/model/entities/Customer.java</file>
+            <file>file:/C:/SO_p1/Homework1/src/java/model/entities/Crypto.java</file>
         </group>
     </open-files>
 </project-private>
