@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 @Entity
 @NamedQuery(name="Credentials.findUser", 
             query="SELECT c FROM Credentials c WHERE c.username = :username")

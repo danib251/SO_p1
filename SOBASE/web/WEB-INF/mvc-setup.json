@@ -1,0 +1,8 @@
+{
+  "commands": [
+    {
+      "URI": "/signUpForm",
+      "class": "cat.urv.deim.sob.command.signUpFormCommand" 
+    }
+  ]
+}

@@ -37,8 +37,7 @@ public class Crypto implements Serializable {
     private float value;
     @NotNull
     private Date date;
-
-  
+    
     @OneToOne
     private Purchase purcharses;
 
@@ -91,5 +90,4 @@ public class Crypto implements Serializable {
     public void setDate(Date date) {
         this.date = date;
     }
-
 }

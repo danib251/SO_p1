@@ -4,22 +4,19 @@
  */
 package Support;
 import java.io.Serializable;
-
 /**
  *
  * @author Daniel Becerra
  * @author Gabriel Gombau
  * 
  */
-
-
 public class Message implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private String message;
     
-    public Message (String b){
-        this.message=b;
+    public Message (String m){
+        this.message=m;
     }
     
     public String getMessage() {
@@ -29,6 +26,4 @@ public class Message implements Serializable {
     public void setMessage(String message) {
         this.message = message;
     }
- 
-  
 }

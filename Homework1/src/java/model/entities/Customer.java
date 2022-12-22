@@ -44,7 +44,6 @@ public class Customer implements Serializable {
     @OneToOne
     @Expose private Credentials credentials;
    
-    
     public Customer() {
         this.purchases = new ArrayList<>();
     }
@@ -88,5 +87,4 @@ public class Customer implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
 }

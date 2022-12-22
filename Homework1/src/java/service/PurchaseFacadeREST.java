@@ -60,7 +60,6 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
         String decode = Base64.base64Decode(auth.replace("Basic ", ""));
         StringTokenizer tokenizer = new StringTokenizer(decode, ":");
         String user = tokenizer.nextToken();
-        String password = tokenizer.nextToken();
         try{          
             float quantity = entity.getQuantity();
             if (quantity <= 0){
@@ -106,7 +105,7 @@ public class PurchaseFacadeREST extends AbstractFacade<Purchase> {
     public Response find(@PathParam("id") Long id) {
          if (Objects.nonNull(super.find(id)))
             return Response.ok().entity(super.find(id)).build();
-        return Response.ok().entity(new Message("Incorrect parameter")).build();
+         return Response.status(Response.Status.BAD_REQUEST).entity(new Message("Purchase doesen't exist")).build();
     }
 
     @GET
