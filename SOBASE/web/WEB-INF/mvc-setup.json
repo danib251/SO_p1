@@ -3,6 +3,10 @@
     {
       "URI": "/signUpForm",
       "class": "cat.urv.deim.sob.command.signUpFormCommand" 
+    },
+    {
+      "URI": "/ListCryptoMain",
+      "class": "cat.urv.deim.sob.command.ListCryptoMain" 
     }
   ]
 }
