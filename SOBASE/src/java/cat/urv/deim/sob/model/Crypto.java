@@ -21,6 +21,7 @@ public class Crypto {
     
     private Date date;
     
+    private Purchase purcharse;
     
     public Crypto() {}
 
@@ -62,6 +63,14 @@ public class Crypto {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Purchase getPurcharse() {
+        return purcharse;
+    }
+
+    public void setPurcharses(Purchase purcharse) {
+        this.purcharse = purcharse;
     }
     
     

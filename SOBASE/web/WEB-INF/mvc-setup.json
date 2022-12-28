@@ -7,6 +7,10 @@
     {
       "URI": "/ListCryptoMain",
       "class": "cat.urv.deim.sob.command.ListCryptoMain" 
+    },
+    {
+      "URI": "/cryptoview",
+      "class": "cat.urv.deim.sob.command.CryptoviewCommand" 
     }
   ]
 }

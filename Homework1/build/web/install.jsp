@@ -42,8 +42,12 @@
                 "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'sob','612123564',1)",
                 "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'Pere','612124564',2)",
                 "INSERT INTO " + schema + ".CUSTOMER VALUES (NEXT VALUE FOR CUSTOMER_GEN,'Marc','61857564',3)",
-                "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','eth mola', 'ethereum', 1300,null)",
-                "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','bitcoin mola', 'bitcoin', 16000,null)"
+                "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','Ether (ETH), su criptomoneda nativa, es un token que puede ser utilizado en transacciones que usen este software.', 'Ethereum', 1300,null)",
+                "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','Ether (ETH), su criptomoneda nativa, es un token que puede ser utilizado en transacciones que usen este software.', 'Ethereum', 1300,null)",
+                "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','Ether (ETH), su criptomoneda nativa, es un token que puede ser utilizado en transacciones que usen este software.', 'Ethereum', 1300,null)",
+                "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','Ether (ETH), su criptomoneda nativa, es un token que puede ser utilizado en transacciones que usen este software.', 'Ethereum', 1300,null)",
+                "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','Ether (ETH), su criptomoneda nativa, es un token que puede ser utilizado en transacciones que usen este software.', 'Ethereum', 1300,null)",
+                "INSERT INTO " + schema + ".CRYPTO VALUES (NEXT VALUE FOR CRYPTO_GEN, '2022-1-1-11.00.00.000000','Bitcoin es una moneda virtual o un medio de intercambio electrónico que sirve para adquirir productos y servicios como cualquier otra moneda.', 'Bitcoin', 16000,null)"
              
             };
             for (String datum : data) {

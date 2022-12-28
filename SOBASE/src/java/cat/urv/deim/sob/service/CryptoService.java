@@ -23,12 +23,14 @@ public class CryptoService {
         Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
         return response.readEntity(new GenericType<List<Crypto>>() {});
     }
-	
-    public boolean addUser(User user) {
-       Response response = webTarget.request(MediaType.APPLICATION_JSON)
-               .post(Entity.entity(user, MediaType.APPLICATION_JSON), 
-                    Response.class);
-     return response.getStatus() == 201;
+    
+    public Crypto findCrypto(String id){
+        
+        Response response = webTarget.path(id) .request(MediaType.APPLICATION_JSON).get();
+        return response.readEntity(Crypto.class);
     }
+	
+   
+               
 
 }
