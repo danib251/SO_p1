@@ -6,21 +6,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : 28 dic 2022, 11:19:48
     Author     : danib
 */
+
 body {
   margin: 0;
   font-family: helvetica, arial, san-serif;
 }
 
-
-
-.container {
-  display: flex;
-  padding: 16px;
-  background-color: transparent;
+.title {
+  text-align: center;
 }
+
 .product-list {
   background-color: #dfe6e9;
   padding: 3em;
+}
+.product-container {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+  
 }
 
 .product-list .card {
@@ -35,17 +39,11 @@ body {
 }
 
 .card .title {
-  font-size: 18px;
+    
+  padding: 10px 0px 25px 0px;
+  font-size: 25px;
   font-weight: bold;
-    color: #1b6d85;
-}
-
-.card img {
-  max-width: 100%;
-  border-radius: 5px;
- transition: 0.5s ease;
- float: right;
-
+  color: #1b6d85;
 }
 
 .card .text {
@@ -53,56 +51,21 @@ body {
   margin-left: 2em;
   margin-bottom: 0.5em;
   font-size: 18px;
-
-}
-
-
-.product-container {
-  display: grid;
-  grid-column-gap: 20px;
-  grid-row-gap: 40px;
+  width:33.33333333333333%;
+  float:left;
   
 }
 
-.align-center {
+.card .info {
   text-align: center;
-  
+  margin-left: 2em;
+  font-size: 18px;
+  width:33.33333333333333%;
+  float: right;
 }
 
 
 
-.card:hover img {
-  transform: scale(1.1);
-  transition: 1s ease;
-}
-
-.card .details {
-  
-  position: relative;
-  top: 50px;
-  transition: 2s ease;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.card:hover .details {
-  opacity: 1;
-  visibility: visible;
-  top: 0px;
-  transition: 2s ease;
-}
-
-.text,
-.title {
-  opacitiy: 1;
-  transition: 0.5s ease;
-}
-
-.card:hover .text,
-.card:hover .title {
-  opacity: 0;
-  transition: 1 ease;
-}
 
 
 

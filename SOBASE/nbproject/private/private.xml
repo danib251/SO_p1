@@ -3,7 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/service/CryptoService.java</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/Crypto.java</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/ControllerServlet.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/header.css</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/ListCryptoMain.java</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/Purchase.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/mainpage.css</file>
+            <file>file:/C:/SO_p1/SOBASE/web/views/base.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/web/views/crypto.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/CryptoviewCommand.java</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/signUpFormCommand.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/WEB-INF/mvc-setup.json</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/service/UserService.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/views/signup-success.jsp</file>
             <file>file:/C:/SO_p1/SOBASE/web/views/signup-form.jsp</file>
         </group>
     </open-files>

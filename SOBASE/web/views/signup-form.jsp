@@ -13,46 +13,33 @@
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/mainpage.css">
+<link rel="stylesheet" type="text/css" href="resources/css/singup-from.css">
 </head>
    <body>
-       </section>
+       
     <section class="product-list ">
       <div>
-        <h1 class="align-center">
+        <h1 class="title">
           Cryptocoins
         </h1>
       </div>
 
       <div class="product-container">
-       
-           
                         <c:forEach var="listValue" items="${cryptoList}">   
                              
                             <div class="card">
-                              <div class="content">
                                 <div class="title">${listValue.name}</div>
-                                <div class="image">
-                                  <a href="/SOBASE/cryptoview.do?id=${listValue.id}"> <img src="<c:url value="/resources/img/${listValue.name}.png"/>" style="padding-bottom: 20px; width: 64px; height: 64px;">
-                                </div>
-                                <div class="text">
-                                  ${listValue.description}
-                                </div>
-                                <div class="value">
-                                  ${listValue.value}
-                                </div>
-                              </div>
-                                
-
+                                    <a href="/SOBASE/cryptoview.do?id=${listValue.id}"> <img src="<c:url value="/resources/img/${listValue.name}.png"/>" style=" width: 64px; height: 64px;"></a>
+                                <div class="text">${listValue.description}</div>
+                                <div class="info"> <p>Actual price: ${listValue.value}</p> <p>Date: ${listValue.date}</p></div>
                             </div>
                         </c:forEach>           
             
         </div>
-         </div>
+         
       
       
       
     </section>
     </body>
-</html>
 </html>
