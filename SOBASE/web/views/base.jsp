@@ -2,7 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*" %>
-
+<%@ page import="cat.urv.deim.sob.model.User" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
     <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +18,22 @@
    <body>
         <div class="topnav">
             <a class="active" href="#home">Home</a>
-            <a href="#buscar.do">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            
+            <%@ page session="false" %> 
+   
+            <%
+                User user = new User();
+                HttpSession session=request.getSession(false);  
+                user = (User) session.getAttribute("user");
+                request.setAttribute("user", user); 
+            %>
+            
+            <c:if test="${user==null}">
+                <a href="<c:url value="/login.do"/>">Login </a> 
+            </c:if>
+            <c:if test="${user!=null}">
+                <a href="<c:url value="/customerInfo.do"/>">Hi, ${user.name}</a>
+            </c:if>  
+     
         </div>
     </body>

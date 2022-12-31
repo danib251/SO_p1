@@ -1,9 +1,6 @@
 {
   "commands": [
-    {
-      "URI": "/signUpForm",
-      "class": "cat.urv.deim.sob.command.signUpFormCommand" 
-    },
+    
     {
       "URI": "/ListCryptoMain",
       "class": "cat.urv.deim.sob.command.ListCryptoMain" 
@@ -11,6 +8,27 @@
     {
       "URI": "/cryptoview",
       "class": "cat.urv.deim.sob.command.CryptoviewCommand" 
+    },
+    {
+      "URI": "/login",
+      "class": "cat.urv.deim.sob.command.loginCommand" 
+    },
+    {
+      "URI": "/register",
+      "class": "cat.urv.deim.sob.command.RegisterCommand" 
+    },
+    {
+      "URI": "/customerInfo",
+      "class": "cat.urv.deim.sob.command.customerInfoCommand" 
+    },
+    {
+      "URI": "/buy",
+      "class": "cat.urv.deim.sob.command.buyCommand" 
     }
+    
+    
+    
+    
+    
   ]
 }

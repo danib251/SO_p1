@@ -1,43 +1,45 @@
 package cat.urv.deim.sob.model;
 
 public class User {
-    private String firstName;
-    private String lastName;
-    private String email;
-
-    public User() {}
     
-    public User(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
-            
-    public String getFirstName() {
-        return fixNull(this.firstName);
+    private Long id; 
+    private String name;
+    private String phone;
+    private Credentials credentials;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public Credentials getCredentials() {
+        return credentials;
     }
 
-    public String getLastName() {
-        return fixNull(this.lastName);
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
+    }
+    
+    public User() {}
+
+    public String getName() {
+        return name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEmail() {
-        return fixNull(this.email);
+    public String getPhone() {
+        return phone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
-
-    private String fixNull(String in) {
-        return (in == null) ? "" : in;
-    }
+    
+    
 }

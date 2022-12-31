@@ -1,3 +1,5 @@
+
+
 /* 
 * Design by Robert Mayer:https://goo.gl/CJ7yC8
 *
@@ -7,36 +9,40 @@
 */
 
 body {
-  background-color: white;
+  background-color: #dfe6e9;
 }
 
 .wrapper {
-  height: 420px;
-  width: 654px;
-  margin: 50px auto;
+  border: 19px solid #447F94;
+  height: 720px;
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  align-items: flex-end;
   border-radius: 7px 7px 7px 7px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
   -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
 }
 
-.product-img {
-  float: left;
-  height: 420px;
-  width: 327px;
+.img {
+  float: right;
+  border: 30px solid rgba(0, 0, 0, 0);
+  height: 80%;
 }
 
-.product-img img {
-  border-radius: 7px 0 0 7px;
-}
+
 
 .product-info {
-  float: left;
-  height: 420px;
-  width: 327px;
-  border-radius: 0 7px 10px 7px;
-  background-color: #ffffff;
+  float:left;
+  height: 80%;
+  width:45.33333333333333%;
+  text-align: left;
+  font-size: 18px;
+  border-left: 100px solid rgba(0, 0, 0, 0);;
+ 
 }
 
 .product-text {
@@ -51,10 +57,6 @@ body {
   color: #474747;
 }
 
-.product-text h1,
-.product-price-btn p {
-  font-family: 'Bentham', serif;
-}
 
 .product-text h2 {
   margin: 0 0 47px 38px;
@@ -67,7 +69,7 @@ body {
 }
 
 .product-text p {
-  height: 125px;
+  
   margin: 0 0 0 38px;
   font-family: 'Playfair Display', serif;
   color: #8d8d8d;
@@ -84,24 +86,6 @@ body {
   position: relative;
 }
 
-.product-price-btn p {
-  display: inline-block;
-  position: absolute;
-  top: -13px;
-  height: 50px;
-  font-family: 'Trocchi', serif;
-  margin: 0 0 0 38px;
-  font-size: 28px;
-  font-weight: lighter;
-  color: #474747;
-}
-
-span {
-  display: inline-block;
-  height: 50px;
-  font-family: 'Suranna', serif;
-  font-size: 34px;
-}
 
 .product-price-btn button {
   float: right;

@@ -88,6 +88,7 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
         return Response.ok().entity(result).build();
     }
     
+    
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response findCustomers()  {

@@ -3,20 +3,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/service/CryptoService.java</file>
-            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/Crypto.java</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/ControllerServlet.java</file>
             <file>file:/C:/SO_p1/SOBASE/web/resources/css/header.css</file>
-            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/ListCryptoMain.java</file>
-            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/Purchase.java</file>
-            <file>file:/C:/SO_p1/SOBASE/web/resources/css/mainpage.css</file>
-            <file>file:/C:/SO_p1/SOBASE/web/views/base.jsp</file>
-            <file>file:/C:/SO_p1/SOBASE/web/views/crypto.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/customerInfo.css</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/CryptoviewCommand.java</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/Credentials.java</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/signUpFormCommand.java</file>
             <file>file:/C:/SO_p1/SOBASE/web/WEB-INF/mvc-setup.json</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/service/UserService.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/login.css</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/crypto.css</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/service/CryptoService.java</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/Crypto.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/cryptobuy.css</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/ListCryptoMain.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/WEB-INF/inici.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/web/WEB-INF/web.xml</file>
+            <file>file:/C:/SO_p1/SOBASE/web/views/crypto.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/web/views/base.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/Command.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/views/login.jsp</file>
             <file>file:/C:/SO_p1/SOBASE/web/views/signup-success.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/loginCommand.java</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/User.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/views/customerInfo.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/singup-from.css</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/customerInfoCommand.java</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/RegisterCommand.java</file>
             <file>file:/C:/SO_p1/SOBASE/web/views/signup-form.jsp</file>
         </group>
     </open-files>
