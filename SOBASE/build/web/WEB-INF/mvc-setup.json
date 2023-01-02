@@ -24,9 +24,13 @@
     {
       "URI": "/buy",
       "class": "cat.urv.deim.sob.command.buyCommand" 
+    },
+    {
+      "URI": "/makePurchase",
+      "class": "cat.urv.deim.sob.command.PurchaseCommand" 
     }
     
-    
+   
     
     
     

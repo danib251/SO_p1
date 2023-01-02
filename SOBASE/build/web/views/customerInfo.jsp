@@ -28,7 +28,7 @@
        <ul class="fa-ul">
          <li><span class="fa-li"><i class="fas fa-heart"></i></span>${user.credentials.username}</li>
          <li><span class="fa-li"><i class="fas fa-heart"></i></span>${user.phone}</li>
-         <li><span class="fa-li"><i class="fas fa-heart"></i></span>Lover of cats</li
+         
         </ul>
       </div>
       <div class="footer">

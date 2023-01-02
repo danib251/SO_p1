@@ -36,7 +36,7 @@ public class RegisterCommand implements Command {
         for (User user : userList) {
         if ((user.getCredentials().getUsername().equals(email))&&(user.getCredentials().getPassword().equals(password))) {
             HttpSession session=request.getSession();  
-            session.setAttribute("user",user);  
+            session.setAttribute("user",user);
             request.setAttribute("email", user.getCredentials().getUsername());
             identified = true;
             break;
