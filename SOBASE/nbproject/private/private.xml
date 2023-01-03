@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/SO_p1/SOBASE/web/views/purchaseInfo.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/img/Dogecoin.png</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/PurchaseCommand.java</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/ControllerServlet.java</file>
             <file>file:/C:/SO_p1/SOBASE/web/resources/css/header.css</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/cryptoInfo.css</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/Purchase.java</file>
             <file>file:/C:/SO_p1/SOBASE/web/views/buy.jsp</file>
             <file>file:/C:/SO_p1/SOBASE/web/resources/css/customerInfo.css</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/CryptoviewCommand.java</file>
@@ -12,8 +17,8 @@
             <file>file:/C:/SO_p1/SOBASE/web/WEB-INF/mvc-setup.json</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/service/UserService.java</file>
             <file>file:/C:/SO_p1/SOBASE/web/resources/css/login.css</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/img/Bitcoin.png</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/buyCommand.java</file>
-            <file>file:/C:/SO_p1/SOBASE/web/resources/css/crypto.css</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/service/CryptoService.java</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/model/Crypto.java</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/ListCryptoMain.java</file>
@@ -21,6 +26,7 @@
             <file>file:/C:/SO_p1/SOBASE/web/WEB-INF/web.xml</file>
             <file>file:/C:/SO_p1/SOBASE/web/views/crypto.jsp</file>
             <file>file:/C:/SO_p1/SOBASE/web/views/base.jsp</file>
+            <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/service/PurchaseService.java</file>
             <file>file:/C:/SO_p1/SOBASE/web/views/login.jsp</file>
             <file>file:/C:/SO_p1/SOBASE/web/install.jsp</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/loginCommand.java</file>
@@ -29,6 +35,7 @@
             <file>file:/C:/SO_p1/SOBASE/web/resources/css/singup-from.css</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/customerInfoCommand.java</file>
             <file>file:/C:/SO_p1/SOBASE/src/java/cat/urv/deim/sob/command/RegisterCommand.java</file>
+            <file>file:/C:/SO_p1/SOBASE/web/resources/css/base.css</file>
             <file>file:/C:/SO_p1/SOBASE/web/views/signup-form.jsp</file>
         </group>
     </open-files>

@@ -70,7 +70,15 @@ form h1:after {
   background:linear-gradient(50deg, rgba(255,255,255,0.15), rgba(0,0,0,0));
   
 }
-
+form h2 {
+  font-size:18px;
+  text-shadow:0 1px 0 black;
+  text-align:center;
+  color: red;
+  padding:15px 0;
+  border-bottom:1px solid rgba(0,0,0,1);
+  position:relative;
+}
 label {
  	color:#666;
   display:block;
@@ -133,6 +141,7 @@ input[type=submit] {
   cursor:pointer;
   font-size:13px;
 }
+
 
 input[type=submit]:hover {
   box-shadow:

@@ -13,7 +13,8 @@
 <html>
     <link rel="stylesheet" type="text/css" href="resources/css/login.css">
     <form action="register.do" method="POST">
-        <h1>Employer Log in</h1>
+        <h1>Log in</h1>
+        <h2>${error}</h2>
         <div class="inset">
             <p>
               <label for="email">EMAIL ADDRESS</label>

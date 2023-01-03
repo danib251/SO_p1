@@ -26,7 +26,7 @@ public class RegisterCommand implements Command {
         
     	String email = request.getParameter("email").trim();
     	String password = request.getParameter("password").trim();
-      
+        String error;
         boolean identified=false;
         
         UserService service= new UserService();
@@ -44,17 +44,21 @@ public class RegisterCommand implements Command {
         }
         }
         if(identified==false){
-            view = "views/login.jsp"; 
+           error="Incorrect user/password";
+           view = "views/login.jsp"; 
+           request.setAttribute("error", error);
+            
         }else
              view = "views/signup-form.jsp";
-                
+        
+            
             CryptoService s= new CryptoService();
-            List <Crypto> crypto= s.findCryptos();
+            List <Crypto> crypto= s.findCryptos("desc");
         
             request.setAttribute("cryptoList", crypto);
             
             
-    
+           
            
         // 3. produce the view with the web result
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);

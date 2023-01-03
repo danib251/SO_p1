@@ -20,9 +20,11 @@ public class ListCryptoMain implements Command {
 
         // 1. Get input
         String view = "views/signup-form.jsp";
-                
+        
+        
+        String order= (request.getParameter("order"));         
         CryptoService service= new CryptoService();
-        List <Crypto> crypto= service.findCryptos();
+        List <Crypto> crypto= service.findCryptos(order);
         
         request.setAttribute("cryptoList", crypto);
         

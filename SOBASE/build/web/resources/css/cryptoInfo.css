@@ -27,11 +27,6 @@ body {
   background-color: #ffffff;
 }
 
-.img {
-  float: right;
-  border: 30px solid rgba(0, 0, 0, 0);
-  height: 80%;
-}
 
 
 
@@ -60,10 +55,9 @@ body {
 
 .product-text h2 {
   margin: 0 0 47px 38px;
-  font-size: 13px;
+  font-size: 20px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  text-transform: uppercase;
   color: #d2d2d2;
   letter-spacing: 0.2em;
 }
@@ -88,11 +82,11 @@ body {
 
 
 .product-price-btn button {
-  float: right;
+  
   display: inline-block;
   height: 50px;
   width: 176px;
-  margin: 0 40px 0 16px;
+  margin: 0 40px 0 80px;
   box-sizing: border-box;
   border: transparent;
   border-radius: 60px;
@@ -105,8 +99,13 @@ body {
   background-color: #9cebd5;
   cursor: pointer;
   outline: none;
+  
 }
 
 .product-price-btn button:hover {
   background-color: #79b0a1;
+}
+.image-info{
+  height: 80%;
+ 
 }

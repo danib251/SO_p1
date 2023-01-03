@@ -37,8 +37,9 @@ public class PurchaseCommand implements Command {
         Encoder encoder = Base64.getEncoder();
         String code = encoder.encodeToString(credentials.getBytes());
         Purchase purchase = new Purchase();
-        purchase.setQuantity(Long.parseLong(quantity));
+        purchase.setQuantity(Float.parseFloat(quantity));
         purchase = service.buy(id, purchase, code);
+        
         
         String view = "views/purchaseInfo.jsp"; 
         request.setAttribute("purchase", purchase);

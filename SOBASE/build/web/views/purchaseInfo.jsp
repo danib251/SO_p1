@@ -14,9 +14,11 @@
 <html>
    
     
-        <h1>purchase completed</h1>
-        <h2>${purchase.value}</h2>
-        
+        <h1>Purchase Completed</h1>
+        <h2>ID: ${purchase.id}</h2>
+        <h2>Quantity: ${purchase.quantity}</h2>
+        <h2>Price: ${purchase.value} eur.</h2>
+        <h2>Time: ${purchase.time}</h2>
         <p class="p-container">
            
              <a href="/SOBASE/ListCryptoMain.do"><button  type="button">Go back</button> </a>

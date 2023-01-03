@@ -7,7 +7,7 @@
     <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="resources/css/base.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sign Up Success - SOB</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
@@ -16,8 +16,9 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 </head>
    <body>
+        
         <div class="topnav">
-            <a class="active" href="#home">Home</a>
+            <a class="active" href="/SOBASE/ListCryptoMain.do">Home</a>
             
             <%@ page session="false" %> 
    
@@ -35,5 +36,6 @@
                 <a href="<c:url value="/customerInfo.do"/>">Hi, ${user.name}</a>
             </c:if>  
      
+        
         </div>
     </body>

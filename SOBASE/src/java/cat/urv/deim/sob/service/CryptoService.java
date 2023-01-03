@@ -19,8 +19,9 @@ public class CryptoService {
         webTarget = client.target(BASE_URI).path("cryptocurrency");
     }
     
-    public List<Crypto> findCryptos(){
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
+    public List<Crypto> findCryptos(String order){
+        
+        Response response = webTarget.queryParam("order", order).request(MediaType.APPLICATION_JSON).get();
         return response.readEntity(new GenericType<List<Crypto>>() {});
     }
     

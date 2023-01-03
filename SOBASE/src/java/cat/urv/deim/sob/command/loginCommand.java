@@ -17,6 +17,7 @@ public class loginCommand implements Command {
         // 1. Get input
        
         String view = "views/login.jsp"; 
+        String Pattern = request.getHeader("referer");
         
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);

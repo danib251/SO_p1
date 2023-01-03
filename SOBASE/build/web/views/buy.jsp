@@ -14,7 +14,7 @@
 <html>
     <form action="makePurchase.do">
         <h1>${crypto.name}</h1>
-        <h2 name="id" id="id">${crypto.id}</h2>
+        <h2 name="id" id="id">Price: ${crypto.value} eur.</h2>
         <div class="inset">
             <p>
               <label for="Quantity">Quantity</label>
@@ -23,7 +23,7 @@
             
         </div>
         <p class="p-container">
-            <input type="submit" value="Log in">
+            <input type="submit" value="BUY">
         </p>
     </form>
 </html>

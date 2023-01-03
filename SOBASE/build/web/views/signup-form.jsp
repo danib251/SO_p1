@@ -21,7 +21,11 @@
       <div>
         <h1 class="title">
           Cryptocoins
-        </h1>
+          <div class="bottoms">
+          <a href="/SOBASE/ListCryptoMain.do?order=desc"><button  type="button">Desc</button> </a>
+          <a href="/SOBASE/ListCryptoMain.do?order=asc"><button  type="button">Asc</button> </a>
+          </h1>
+        </div>
       </div>
 
       <div class="product-container">
@@ -31,7 +35,7 @@
                                 <div class="title">${listValue.name}</div>
                                     <a href="/SOBASE/cryptoview.do?id=${listValue.id}"> <img src="<c:url value="/resources/img/${listValue.name}.png"/>" style=" width: 64px; height: 64px;"></a>
                                 <div class="text">${listValue.description}</div>
-                                <div class="info"> <p>Actual price: ${listValue.value}</p> <p>Date: ${listValue.date}</p></div>
+                                <div class="info"> <p>Actual price: ${listValue.value}?</p> <p>Date: ${listValue.date}</p></div>
                             </div>
                         </c:forEach>           
             
