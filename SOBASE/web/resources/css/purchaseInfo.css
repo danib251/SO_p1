@@ -1,0 +1,48 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 4 ene 2023, 10:25:35
+    Author     : danib
+*/
+
+.text {
+    background: #FFF;
+    color: #111;
+    font: 16px "Lucida Console", Monaco, monospace;
+    text-align: center;
+}
+	
+div, h1, h2, p {
+    margin: 10;
+    padding: 10;
+}
+	
+#poem { 
+    margin: auto;
+    padding: 30px 0;
+    text-align: left;
+    width: 360px;
+    }
+		
+h1, h2 , h4{
+    font-weight: normal;
+    text-align: center;
+}
+				
+h1 {
+    font-size: 36px;
+    color: purple;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+			
+h2 {
+    color: #666;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 30px;
+}					
+
+    

@@ -4,26 +4,35 @@
     Author     : danib
 --%>
 
+<jsp:directive.include file = "base.jsp" />
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*" %>
 
-<jsp:directive.include file = "base.jsp" />
+
 <!DOCTYPE html>
 <html>
-    <form action="makePurchase.do">
-        <h1>${crypto.name}</h1>
-        <h2 name="id" id="id">Price: ${crypto.value} eur.</h2>
-        <div class="inset">
-            <p>
-              <label for="Quantity">Quantity</label>
-              <input type="text" name="Quantity" id="Quantity">
-            </p>
+    <head>
+        <link rel="stylesheet" type="text/css" href="resources/css/buy.css">
+    </head>
+    <body>
+        
+        <form action="makePurchase.do">
             
-        </div>
-        <p class="p-container">
-            <input type="submit" value="BUY">
-        </p>
-    </form>
+            <div class="inset">
+                <h1>${crypto.name}</h1>
+                <h2 name="id" id="id">Price: ${crypto.value} eur.</h2>
+                <div class="info">
+                    <p>
+                      <label for="Quantity">Quantity</label>
+                      <input type="text" name="Quantity" id="Quantity">
+                    </p> 
+                    <p class="p-container">
+                        <input type="submit" value="BUY">
+                    </p>
+                </div>
+            </div>
+        </form>
+    </body>
 </html>

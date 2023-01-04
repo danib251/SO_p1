@@ -127,7 +127,10 @@ input[type=checkbox] {
 }
 
 input[type=submit] {
- 	padding:5px 20px;
+  float:right;
+}
+input[type=button],[type=submit] {
+   padding:5px 20px;
   border:1px solid rgba(0,0,0,0.4);
   text-shadow:0 -1px 0 rgba(0,0,0,0.4);
   box-shadow:
@@ -136,12 +139,10 @@ input[type=submit] {
   border-radius:0.3em;
   background:#0184ff;
   color:white;
-  float:right;
   font-weight:bold;
   cursor:pointer;
   font-size:13px;
 }
-
 
 input[type=submit]:hover {
   box-shadow:

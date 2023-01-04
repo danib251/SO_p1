@@ -12,8 +12,8 @@
 <jsp:directive.include file = "base.jsp" />
 <!DOCTYPE html>
 <html>
-   
-    
+    <link rel="stylesheet" type="text/css" href="resources/css/purchaseInfo.css">
+    <div class="text">
         <h1>Purchase Completed</h1>
         <h2>ID: ${purchase.id}</h2>
         <h2>Quantity: ${purchase.quantity}</h2>
@@ -23,5 +23,5 @@
            
              <a href="/SOBASE/ListCryptoMain.do"><button  type="button">Go back</button> </a>
         </p>
-  
+    </div>
 </html>

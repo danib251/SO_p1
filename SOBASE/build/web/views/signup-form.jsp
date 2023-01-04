@@ -27,23 +27,16 @@
           </h1>
         </div>
       </div>
-
       <div class="product-container">
                         <c:forEach var="listValue" items="${cryptoList}">   
-                             
                             <div class="card">
                                 <div class="title">${listValue.name}</div>
                                     <a href="/SOBASE/cryptoview.do?id=${listValue.id}"> <img src="<c:url value="/resources/img/${listValue.name}.png"/>" style=" width: 64px; height: 64px;"></a>
                                 <div class="text">${listValue.description}</div>
-                                <div class="info"> <p>Actual price: ${listValue.value}?</p> <p>Date: ${listValue.date}</p></div>
+                                <div class="info"> <p>Actual price: ${listValue.value} eur.</p> <p>Date: ${listValue.date}</p></div>
                             </div>
                         </c:forEach>           
-            
         </div>
-         
-      
-      
-      
     </section>
     </body>
 </html>
