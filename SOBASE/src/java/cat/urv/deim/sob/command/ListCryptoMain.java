@@ -19,7 +19,7 @@ public class ListCryptoMain implements Command {
             throws ServletException, IOException {
 
         // 1. Get input
-        String view = "views/signup-form.jsp";
+        String view = "views/listCrypto.jsp";
         
         
         String order= (request.getParameter("order"));         
@@ -27,14 +27,6 @@ public class ListCryptoMain implements Command {
         List <Crypto> crypto= service.findCryptos(order);
         
         request.setAttribute("cryptoList", crypto);
-        
-        HttpSession session=request.getSession(false);  
-        String email =(String)session.getAttribute("email");
-        
-        request.setAttribute("email", email);
-        
-       
- 
         
         // 3. produce the view with the web result
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);

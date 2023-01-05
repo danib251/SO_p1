@@ -26,7 +26,7 @@ public class buyCommand implements Command {
         
         CryptoService service= new CryptoService();
         Crypto crypto= service.findCrypto(request.getParameter("id"));
-        
+        session.setAttribute("crypto", crypto);
         request.setAttribute("crypto", crypto);
         
         

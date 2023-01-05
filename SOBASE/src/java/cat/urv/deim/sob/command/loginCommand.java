@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.ServletException;
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
 public class loginCommand implements Command {
@@ -17,8 +18,9 @@ public class loginCommand implements Command {
         // 1. Get input
        
         String view = "views/login.jsp"; 
-        String Pattern = request.getHeader("referer");
-        
+        String referer = request.getHeader("referer");
+        HttpSession session=request.getSession(false);  
+        session.setAttribute("referer", referer);
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
     }

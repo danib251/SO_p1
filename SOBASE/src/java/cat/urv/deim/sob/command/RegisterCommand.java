@@ -31,11 +31,11 @@ public class RegisterCommand implements Command {
         
         UserService service= new UserService();
         List <User> userList= service.findUsers();
-        String view;
-        
+        String view = null, h1;
+        HttpSession session=request.getSession();
         for (User user : userList) {
         if ((user.getCredentials().getUsername().equals(email))&&(user.getCredentials().getPassword().equals(password))) {
-            HttpSession session=request.getSession();  
+              
             session.setAttribute("user",user);
             request.setAttribute("email", user.getCredentials().getUsername());
             identified = true;
@@ -48,10 +48,9 @@ public class RegisterCommand implements Command {
            view = "views/login.jsp"; 
            request.setAttribute("error", error);
             
-        }else
-             view = "views/signup-form.jsp";
-        
-            
+        }else{
+            view = "views/listCrypto.jsp";
+        }   
             CryptoService s= new CryptoService();
             List <Crypto> crypto= s.findCryptos("desc");
         

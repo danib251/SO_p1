@@ -22,6 +22,7 @@
             
             <div class="inset">
                 <h1>${crypto.name}</h1>
+                <h2>${incorrect}</h2>
                 <h2 name="id" id="id">Price: ${crypto.value} eur.</h2>
                 <div class="info">
                     <p>

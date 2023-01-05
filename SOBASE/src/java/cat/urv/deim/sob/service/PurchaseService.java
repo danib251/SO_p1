@@ -25,16 +25,11 @@ public class PurchaseService {
         WebTarget resource = (WebTarget) webTarget.queryParam("cryptocurrency", id);//.request(MediaType.APPLICATION_JSON).post(Entity.json(entity));
         
         Response response = resource.request(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, "Basic " + credentials).post(Entity.entity(entity, MediaType.APPLICATION_JSON));
-                            
-                           
-        return response.readEntity(Purchase.class);
+        
+        return (response.getStatus() == 200) ? response.readEntity(Purchase.class) : null;
     }
     
-    public Crypto findCrypto(String id){
-        
-        Response response = webTarget.path(id) .request(MediaType.APPLICATION_JSON).get();
-        return response.readEntity(Crypto.class);
-    }
+ 
 	
    
                

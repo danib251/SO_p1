@@ -11,6 +11,7 @@ import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpSession;
 import cat.urv.deim.sob.model.User;
+import cat.urv.deim.sob.service.CryptoService;
 import cat.urv.deim.sob.service.PurchaseService;
 import java.util.Base64;
 import java.util.Base64.Encoder;
@@ -26,23 +27,27 @@ public class PurchaseCommand implements Command {
        
         String quantity = request.getParameter("Quantity").trim();
         PurchaseService service= new PurchaseService();
-        String path = request.getHeader("referer");
-        String id = String.valueOf(path.charAt(path.length()-1));
-        
-      
         HttpSession session=request.getSession(false);  
         User user = (User) session.getAttribute("user");
-        
+        Crypto crypto = (Crypto) session.getAttribute("crypto");
+        String id = String.valueOf(crypto.getId());
         String credentials = user.getCredentials().getUsername() +":"+ user.getCredentials().getPassword();
         Encoder encoder = Base64.getEncoder();
         String code = encoder.encodeToString(credentials.getBytes());
         Purchase purchase = new Purchase();
-        purchase.setQuantity(Float.parseFloat(quantity));
-        purchase = service.buy(id, purchase, code);
-        
-        
-        String view = "views/purchaseInfo.jsp"; 
-        request.setAttribute("purchase", purchase);
+        String view;
+        try{
+            if (Float.parseFloat(quantity)<=0)
+                quantity= "a";
+            purchase.setQuantity(Float.parseFloat(quantity));
+            purchase = service.buy(id, purchase, code);
+            view = "views/purchaseInfo.jsp"; 
+            request.setAttribute("purchase", purchase);
+        }catch(NumberFormatException e){
+            view = "views/buy.jsp";
+            request.setAttribute("incorrect", "Incorrect parameter");
+            request.setAttribute("crypto", crypto);
+        }
         
         // 3. produce the view with the web result
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);

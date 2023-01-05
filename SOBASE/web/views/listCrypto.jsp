@@ -13,7 +13,7 @@
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/singup-from.css">
+<link rel="stylesheet" type="text/css" href="resources/css/listCrypto.css">
 </head>
    <body>
        
